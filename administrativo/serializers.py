@@ -1,7 +1,5 @@
 from rest_framework import serializers
-
-from .models import Rol
-from .models import User
+from .models import Rol, User
 
 class RolSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,5 +15,5 @@ class UserSerializer(serializers.ModelSerializer):
     rol = serializers.StringRelatedField(read_only = True)
     class Meta:
         model = User
-        Fields = ['id', 'username', 'foto', 'correo', 'rol_id', 'rol']
+        fields = ['id', 'username', 'foto', 'correo', 'rol_id', 'rol']
         extra_kwargs ={'password': {'write_only': True}}
