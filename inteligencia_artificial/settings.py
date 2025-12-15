@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'administrativo'
+    'rest_framework', #agregado para facilitador de getter y setters
+    "corsheaders", #agregado para cors
+    'administrativo' #app creada
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #agregado para cors
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -125,3 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+#agregado para cors
+ALLOWED_HOSTS = ["localhost", "http://localhost:8081"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
